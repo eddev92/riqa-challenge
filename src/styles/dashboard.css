@@ -1,0 +1,50 @@
+.main-dashboard {
+    background-color: white;
+    margin: auto;
+    height: 100%;
+    width: 97%;
+    margin-top: 7px;
+    padding: 25px 30px;
+    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.10);
+}
+.welcome{
+    text-align: left;
+    height: 180px;
+    padding: 20px 10px;
+}
+.welcome img {
+    border-radius: 50%;
+    height: 66%;
+    width: 11%;
+}
+.tabs-content {
+    margin-top: 30px;
+}
+.tabs-content ul li {
+    display: flex;
+}
+.border-rigth {
+    border-right: 1px solid black;
+    display: flex;
+}
+.welcome-section {
+    display: -webkit-inline-box;
+}
+span {
+    font-size: 0.91em;
+}
+.tabs-content ul li.normal.active {
+    color: darkorange;
+    margin-top: 15px;
+}
+.tabs-content ul li.normal {
+    color: darkgray;
+    margin: 30px 0;
+    font-size: 0.9em;
+}
+.tabs-content ul {
+    padding-left: 0;
+}
+.tabs-menu {
+    border-bottom: 1px solid #e5e5e5
+}

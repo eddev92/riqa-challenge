@@ -1,0 +1,8 @@
+.accordion__title {
+    background-color: white;
+    outline: none;
+}
+.accordion {
+    border: 1px solid white;
+    border-bottom: 1px solid #e5e5e5;
+}
