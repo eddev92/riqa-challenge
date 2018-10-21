@@ -12,12 +12,14 @@
     height: 150px;
     margin-top: 20px;
     background: #fbfcfb;
+    padding: 6px 2px;
 }
-.add-mail{
+.add-mail, .verification-content{
     font-size: 0.8em;
     height: 35px;
+    margin-bottom: 8px;
 }
-.add-mail button {
+.add-mail button, .verification-content button {
     margin: 0 10px;
     border-radius: 5px;
     color:white;
@@ -30,4 +32,30 @@
 .add-mail span {
     padding: 10px;
     color: #0e98ec;
+}
+.fz08 {
+    font-size: 0.8em;
+}
+.blue-font {
+    color: #0e98ec;
+}
+span.add{
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 20px 0px;
+}
+button.white {
+    background-color: white;
+    color: black;
+}
+.verification-content input {
+    margin-left: 14px;
+}
+span.forgot-password {
+    margin-top: 15px;
+}
+.main-verification h6 {
+    margin-bottom: 17px;
+    margin-top: 9px;
 }

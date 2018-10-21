@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import AccordionComponent from './../shared/accordion'
 import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+
+// Demo styles, see 'Styles' section below for some notes on use.
+
+import 'react-accessible-accordion/dist/fancy-example.css';
+import './../../styles/accordion.css';
+import {
     TABS
 }
 from '../../utils/data';
@@ -16,53 +27,20 @@ class Dashboard extends React.Component {
         super(props);
         this.state  = {
             accordionContent: {},
-            tabContentIndex: 0
+            tabContentIndex: 0,
+            showAddMail: false,
+            changesSaved: false
         }
     }
 
-    getContent = (id) => {
-        console.log(id)
-        switch (id) {
-            case 1: 
-                this.setState({ tabContentIndex: id });
-                break;
-            case 2: 
-                return this.setState({ tabContentIndex: id });
-            case 3: 
-                return this.setState({ tabContentIndex: id });
-            case 4: 
-                return this.setState({ tabContentIndex: id });
-            case 5: 
-                return this.setState({ tabContentIndex: id });
-            default:
-                return this.setState({ tabContentIndex: id });
-        }
-    }
+    addMail = () => {
+        const { showAddMail } = this.state;
 
-    renderContentBody = () => {
-        const { tabContentIndex } = this.state;
-        let content;
-        
-         switch (tabContentIndex) {
-             case 1: 
-                 return <INIT_SESSION_AND_SECURITY_CONTENT />
-             case 2: 
-                 return <PHONE_NUMBER_CONTENT />
-             case 3: 
-                 return <CHANGE_PASSWORD_CONTENT />
-             case 4: 
-                 return <CONNECTIONS_CONTENT />
-             case 5: 
-                 return <ACCOUNT_MANAGEMENT_CONTENT />
-             default:
-                 return <INIT_SESSION_AND_SECURITY_CONTENT />;
-         }
+        this.setState({ showAddMail: !showAddMail });
     }
 
     render() {
-        const { accordionContent, tabContentIndex } = this.state;
-        console.log(accordionContent, 'content')
-        const content = this.renderContentBody(tabContentIndex);
+        const { showAddMail, changesSaved } = this.state;
 
         return(
             <div className="main-dashboard container">
@@ -115,9 +93,55 @@ class Dashboard extends React.Component {
                             </ul>
                         </div>
                         <div className="col-md-9">
-                        <AccordionComponent acordions={TABS} getContent={this.getContent} body={accordionContent} >
-                            {content && content}
-                        </AccordionComponent>
+                        {/* <AccordionComponent acordions={TABS} getContent={this.getContent} body={accordionContent} > */}
+                            <Accordion>
+                                <AccordionItem>
+                                    <AccordionItemTitle>
+                                        <h5>Inicio de sesión y seguridad</h5>
+                                        <h6>Añade o elimina direcciones de correo electrónico en tu cuenta.</h6>
+                                    </AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <INIT_SESSION_AND_SECURITY_CONTENT showAddMail={showAddMail} addMail={this.addMail} changesSaved={changesSaved}/>
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionItemTitle>
+                                        <h5>Números de celular</h5>
+                                        <h6>Añade un número de celular para hacer más segura tu cuenta.</h6>
+                                    </AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <PHONE_NUMBER_CONTENT />
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionItemTitle>
+                                        <h5>Cambiar contraseña'</h5>
+                                        <h6>Crea una contraseña única para poder proteger tu cuenta.</h6>
+                                    </AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <CHANGE_PASSWORD_CONTENT />
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionItemTitle>
+                                        <h5>Conexiones</h5>
+                                        <h6>Redes sociales conectadas a tu cuenta de Krowdy.</h6>
+                                    </AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <CONNECTIONS_CONTENT />
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                                <AccordionItem>
+                                    <AccordionItemTitle>
+                                        <h5>Gestión de cuenta</h5>
+                                        <h6>Aquí podrás cerrar tu cuenta si deseas.</h6>
+                                    </AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <ACCOUNT_MANAGEMENT_CONTENT />
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                            </Accordion>
+                        {/* </AccordionComponent> */}
                         </div>
                     </div>
                 </div>
