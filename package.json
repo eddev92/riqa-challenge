@@ -4,6 +4,8 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.1",
     "react": "^16.5.2",
@@ -28,6 +30,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "faker": "^4.1.0",
+    "lodash": "^4.17.11",
+    "nodemon": "^1.18.4",
     "sequelize-cli": "^5.2.0"
   }
 }
