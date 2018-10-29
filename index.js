@@ -32,22 +32,17 @@ db.sequelize
     db.post.bulkCreate(
       lodash.times(10, () => ({
         title: faker.lorem.sentence(),
-        content: faker.lorem.paragraph(),
+        content: faker.lorem.sentence(),
         authorId: lodash.random(1, 10)
       }))
     );
     });
 
- 
 
-//   app.get( "/author/:id", (req, res) =>
-//   db.author.findById(req.params.id).then( (result) => res.json(result))
-// );
+    // app.get('/posts', (req, res) => {
+    //   db.post.findAll().then(users => res.json(users))
+    // });
 
   app.listen(8001, () => {
     console.log('app running in 8001 PORT')
-  });
-  app.get('/state', (req, res) => {
-    alert('hola')
-    res.send('hello world');
   });

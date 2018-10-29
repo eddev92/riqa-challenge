@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AccordionComponent from './../shared/accordion'
+import axios from 'axios';
 import {
     Accordion,
     AccordionItem,
@@ -38,7 +39,17 @@ class Dashboard extends React.Component {
 
         this.setState({ showAddMail: !showAddMail });
     }
-
+    getAuthors = () => {
+        axios.defaults.baseURL = 'http://localhost:8001';
+        axios.defaults.headers.post['Content-Type'] = 'application/json';
+        axios.get('/post/67')
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
     render() {
         const { showAddMail, changesSaved } = this.state;
 
@@ -64,6 +75,7 @@ class Dashboard extends React.Component {
                         <div className="col-md-4">
                         <img src="images/img_avatar.png" alt="Avatar" />
                         </div>
+                        <button onClick={this.getAuthors}>Conseguir autor</button>
                     </div>
                 </div>
                 <div className="div">
